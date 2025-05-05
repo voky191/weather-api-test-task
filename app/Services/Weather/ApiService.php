@@ -32,7 +32,7 @@ class ApiService
         if ($response->successful()) {
             return $result;
         } else {
-            throw new WeatherApiErrorException(array_key_exists('error', $result) ?
+            throw new WeatherApiErrorException(array_key_exists('error', $result ?? []) ?
                 $result['error']['message'] : __('errors.default'));
         }
     }

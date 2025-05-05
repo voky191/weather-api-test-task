@@ -1,11 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\WeatherController;
+use App\Http\Middleware\CheckWeatherApiKey;
 
-//Route::get('/user', function (Request $request) {
-//    return $request->user();
-//})->middleware('auth:sanctum');
-
-Route::get('/weather', [WeatherController::class, 'search'])->name('weather.search');
+Route::get('/weather', [WeatherController::class, 'search'])
+    ->middleware(CheckWeatherApiKey::class)
+    ->name('weather.search');
