@@ -22,7 +22,7 @@ class CheckWeatherApiKey
         if ($key) {
             return $next($request);
         }else {
-            return response()->json(__('errors.key'), 500);
+            return response()->json(['error' => __('errors.key')], 500);
         }
     }
 }
