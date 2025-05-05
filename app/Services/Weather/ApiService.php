@@ -3,6 +3,7 @@
 namespace App\Services\Weather;
 
 use App\Exceptions\WeatherApiErrorException;
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 
 class ApiService
@@ -10,12 +11,13 @@ class ApiService
     private array $params = [];
 
     public function __construct(private readonly string $uri, string $apiKey)
-    {;
-        $this->params['key'] = $apiKey;
+    {
+        $this->setParam('key', $apiKey);
     }
 
     /**
-     * @throws \Exception
+     * @throws WeatherApiErrorException
+     * @throws ConnectionException
      */
     public function search(string $query): array
     {

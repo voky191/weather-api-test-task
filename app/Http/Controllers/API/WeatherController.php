@@ -19,9 +19,9 @@ class WeatherController extends Controller
 
             $result = $this->service->searchResults(query: Arr::get($validated, 'search'));
 
-            return $this->readResponse($result);
+            return $this->readResponse(data: $result);
         } catch (\Exception $e) {
-            return $this->errorResponse($e->getMessage(), $e->getCode());
+            return $this->errorResponse(error: $e->getMessage(), code: $e->getCode());
         }
     }
 
