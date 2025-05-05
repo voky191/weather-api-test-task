@@ -7,7 +7,7 @@
 <body>
 <h1>Погода</h1>
 
-<input type="text" id="search" placeholder="Введіть місто..." />
+<input type="text" id="search" placeholder="Введіть локацію..." />
 
 <div id="results"></div>
 
