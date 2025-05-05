@@ -37,3 +37,5 @@
  - Run the migrations:
 
 `sail artisan migrate`
+
+- Go to `http://localhost` (specify port in url if `APP_PORT` was changed in `.env`)
